@@ -276,15 +276,6 @@ const IconClose = () => (
   </svg>
 );
 
-const navItems = [
-  { label: "Início", icon: <IconHome />, active: true },
-  { label: "Oficinas", icon: <IconWrench /> },
-  { label: "Alunos", icon: <IconStudents /> },
-  { label: "Desempenho", icon: <IconPerformance /> },
-  { label: "Parceiros", icon: <IconPartners /> },
-  { label: "Configurações", icon: <IconSettings /> },
-];
-
 export default function Home() {
   const [activeNav, setActiveNav] = useState("Início");
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -294,19 +285,57 @@ export default function Home() {
     setActiveNav(label);
     setSidebarOpen(false);
   };
-
+  const handleHome = () => {
+    router.push('/');
+  }
   const handleOficina = () => {
     router.push('/oficinas');
   };
+
   const handleDashboard = () => {
     router.push('/dashboard');
   };
+
   const handleLogin = () => {
     router.push('/login');
   };
+
   const handleEmpresa = () => {
     router.push('/empresas');
   };
+
+  const navItems = [
+    {
+      label: "Início",
+      icon: <IconHome />,
+      action: handleHome,
+    },
+    {
+      label: "Oficinas",
+      icon: <IconWrench />,
+      action: handleOficina,
+    },
+    {
+      label: "Alunos",
+      icon: <IconStudents />,
+      action: () => router.push('/details'),
+    },
+    {
+      label: "Desempenho",
+      icon: <IconPerformance />,
+      action: handleDashboard,
+    },
+    {
+      label: "Parceiros",
+      icon: <IconPartners />,
+      action: handleEmpresa,
+    },
+    {
+      label: "Configurações",
+      icon: <IconSettings />,
+      action: () => router.push('/configuracoes'),
+    },
+  ];
 
 
   return (
@@ -425,7 +454,10 @@ export default function Home() {
               <button
                 key={item.label}
                 className={`nav-btn${activeNav === item.label ? " active" : ""}`}
-                onClick={() => handleNavClick(item.label)}
+                onClick={() => {
+                  setActiveNav(item.label);
+                  item.action();
+                }}
               >
                 <span style={{ opacity: 0.9 }}>{item.icon}</span>
                 {item.label}
