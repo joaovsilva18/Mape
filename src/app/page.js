@@ -491,7 +491,7 @@ export default function Home() {
                   </div>
                   <div>
                     <div className="card-num" style={{ color: "#f57c00" }}>
-                      8
+                      6
                     </div>
                     <div className="card-title">Oficinas disponíveis</div>
                     <div className="card-desc">

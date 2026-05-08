@@ -678,7 +678,7 @@ export default function AlunosOficina() {
                   {[
                     "Aluno",
                     "Turma",
-                    "Inicial",
+
                     "Desempenho",
                     "Frequência",
                     "Evolução",
@@ -769,7 +769,7 @@ export default function AlunosOficina() {
                       marginBottom: "10px",
                     }}
                   >
-                    <div style={avatarStyle(a.desempenho)}>{a.iniciais}</div>
+                    <div style={avatarStyle(a.desempenho)}>{a.desempenho}</div>
                     <div>
                       <div
                         style={{
