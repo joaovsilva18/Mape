@@ -1,5 +1,7 @@
-"use client";
-import { useState } from "react";
+'use client';
+
+import { useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
 
 const MAPELogo = () => (
   <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
@@ -286,11 +288,23 @@ const navItems = [
 export default function Home() {
   const [activeNav, setActiveNav] = useState("Início");
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const router = useRouter();
 
   const handleNavClick = (label) => {
     setActiveNav(label);
     setSidebarOpen(false);
   };
+
+  const handleOficina = () => {
+    router.push('/oficinas');
+  };
+  const handleDashboard = () => {
+    router.push('/dashboard');
+  };
+  const handleLogin = () => {
+    router.push('/login');
+  };
+
 
   return (
     <>
@@ -416,7 +430,7 @@ export default function Home() {
             ))}
           </nav>
           <div className="sidebar-logout">
-            <button className="nav-btn">
+            <button className="nav-btn" onClick={handleLogin}>
               <IconLogout />
               Sair
             </button>
@@ -494,13 +508,13 @@ export default function Home() {
                       onMouseLeave={(e) =>
                         (e.currentTarget.style.background = "transparent")
                       }
+                      onClick={handleOficina}
                     >
                       Ver oficinas
                     </button>
                   </div>
                 </div>
               </div>
-
               <div className="card">
                 <div className="card-inner">
                   <div className="card-icon" style={{ background: "#2e7d32" }}>
@@ -524,6 +538,7 @@ export default function Home() {
                       onMouseLeave={(e) =>
                         (e.currentTarget.style.background = "transparent")
                       }
+                      onClick={handleDashboard}
                     >
                       Ver dashboard
                     </button>
