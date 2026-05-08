@@ -301,7 +301,7 @@ const metrics = [
     color: "#2e7d32",
   },
   {
-    value: "8",
+    value: "6",
     label: "Oficinas disponíveis",
     desc: "Oficinas oferecidas para os alunos",
     icon: <ExtensionIcon sx={{ fontSize: 22, color: "#e65100" }} />,
@@ -309,7 +309,7 @@ const metrics = [
     color: "#e65100",
   },
   {
-    value: "96%",
+    value: "83,26%",
     label: "Engajamento",
     desc: "Alunos ativos nas oficinas",
     icon: <SchoolIcon sx={{ fontSize: 22, color: "#2e7d32" }} />,
@@ -317,7 +317,7 @@ const metrics = [
     color: "#2e7d32",
   },
   {
-    value: "-24%",
+    value: "16,74%",
     label: "Redução da evasão",
     desc: "Comparação antes e depois do MAPE",
     icon: <TrendingDownIcon sx={{ fontSize: 22, color: "#e65100" }} />,
@@ -616,9 +616,6 @@ export default function Dashboard() {
                   gap: "15px",
                 }}
               >
-                <NotificationsIcon
-                  sx={{ color: "#000000", fontSize: 20, cursor: "pointer" }}
-                />
                 Escola Dr Alexandrino da Rocha
               </div>
               <div style={{ fontSize: "13px", color: "#666" }}>
@@ -772,13 +769,13 @@ export default function Dashboard() {
               {
                 title: "Antes do MAPE",
                 data: beforeData,
-                label: "40%",
+                label: "18,6%",
                 sub: "evasão",
               },
               {
                 title: "Depois do MAPE",
                 data: afterData,
-                label: "16%",
+                label: "10%",
                 sub: "evasão",
               },
             ].map((chart, i) => (
