@@ -304,6 +304,9 @@ export default function Home() {
   const handleLogin = () => {
     router.push('/login');
   };
+  const handleEmpresa = () => {
+    router.push('/empresas');
+  };
 
 
   return (
@@ -569,6 +572,7 @@ export default function Home() {
                       onMouseLeave={(e) =>
                         (e.currentTarget.style.background = "transparent")
                       }
+                      onClick={handleEmpresa}
                     >
                       Ver parceiros
                     </button>
