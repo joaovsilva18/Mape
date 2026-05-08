@@ -8,6 +8,7 @@ import PaletteIcon from "@mui/icons-material/Palette";
 import BusinessCenterIcon from "@mui/icons-material/BusinessCenter";
 import PlayCircleIcon from "@mui/icons-material/PlayCircle";
 import RecyclingIcon from "@mui/icons-material/Recycling";
+import { useRouter } from 'next/navigation';
 
 const oficinas = [
   {
@@ -341,6 +342,7 @@ export default function Oficinas() {
   const [isMobile, setIsMobile] = useState(false);
   const [screenWidth, setScreenWidth] = useState(1200);
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     const check = () => {
@@ -692,6 +694,7 @@ export default function Oficinas() {
                     width: "100%",
                     marginTop: "10px",
                   }}
+                  onClick={() => router.push(`/details`)}
                 >
                   Ver alunos
                 </button>

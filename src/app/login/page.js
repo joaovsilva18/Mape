@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from 'next/navigation';
 
 function MAPELogo({ width = 450 }) {
   return (
@@ -162,7 +163,7 @@ export default function CadastroEscola() {
     cidade: "",
   });
   const [focused, setFocused] = useState(null);
-
+  const router = useRouter();
   function handleChange(e) {
     const { name, value } = e.target;
     if (name === "telefone") {
@@ -178,10 +179,9 @@ export default function CadastroEscola() {
     setForm((prev) => ({ ...prev, [name]: value }));
   }
 
-  function handleSubmit() {
-    console.log(form);
-    alert("Escola cadastrada com sucesso!");
-  }
+  const handleSubmit = () => {
+    router.push('/');
+  };
 
   const inputStyle = (name) => ({
     width: "100%",
